@@ -2,16 +2,17 @@ let angle = 0
 input.calibrateCompass()
 basic.forever(function () {
     angle = input.compassHeading()
-    if (angle < 45) {
-        basic.showString("N")
-    }
-    if (angle < 135) {
+    if (angle > 45 && angle <= 135) {
         basic.showString("E")
-    }
-    if (angle < 225) {
-        basic.showString("S")
-    }
-    if (angle < 315) {
-        basic.showString("O")
+    } else {
+        if (angle > 135 && angle <= 225) {
+            basic.showString("S")
+        } else {
+            if (angle > 225 && angle <= 315) {
+                basic.showString("O")
+            } else {
+                basic.showString("N")
+            }
+        }
     }
 })
